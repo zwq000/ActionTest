@@ -17,7 +17,11 @@ jobs:
     - name: Run a multi-line script
       env:
         version: ${{steps.version.outputs}} 
+      shell: bash
       run: |
         echo Add other actions to build,
         echo $version
+        ver=`date +%y%m%d-%H%m`
+        echo $ver
+        
     
