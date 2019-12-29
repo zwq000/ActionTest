@@ -1,0 +1,23 @@
+name: CI
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Run a one-line script
+      run: echo Hello, world!
+    - name: gen timestamp
+      id: version
+      run: date +%y%m%d-%H%m`
+    - name: Run a multi-line script
+      env:
+        version: ${{steps.version.output}} 
+      run: |
+        echo Add other actions to build,
+        echo $version
+    
