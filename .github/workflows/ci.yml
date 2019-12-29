@@ -13,10 +13,10 @@ jobs:
       run: echo Hello, world!
     - name: gen timestamp
       id: version
-      run: date +%y%m%d-%H%m`
+      run: date +%y%m%d-%H%m
     - name: Run a multi-line script
       env:
-        version: ${{steps.version.output}} 
+        version: ${{steps.version.outputs}} 
       run: |
         echo Add other actions to build,
         echo $version
